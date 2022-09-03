@@ -36,10 +36,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<First/>}/>
-        <Route path="/createactivity" element={<Second/>} />
         <Route path="/searchactivity" element={<Third/>} />
-        <Route path="/createprofile" element={<Fourth/>} />
-        <Route path="/connectpeople" element={<Fifth/>} />
         <Route path="/findhome" element={<Sixth/>} />
         <Route path="/benefits" element={<Seventh/>} />
         <Route path="/contact" element={<Eighth/>} />
