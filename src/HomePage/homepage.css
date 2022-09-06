@@ -1,4 +1,4 @@
-*{
+/* *{
     padding: 0;
     margin: 0;
 }
@@ -116,4 +116,20 @@
     display: inline-block;
     vertical-align:middle;
     color: #000080;
+} */
+
+h2{
+    color: #103d97 ;
+    font-size: 40px;
+}
+
+#band{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#imgbox img{
+    padding: 5px;
+    width: 100%;
+    max-height: 210px;
 }

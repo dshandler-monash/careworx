@@ -46,16 +46,16 @@ const imgs = [
 export default () => {
     const slider = useSlider(imgs.length)
     return(
-        <div className="scroller">
-            <div className="inner" style={{width:`${imgs.length * 100}%`,transform:`translateX(-${100*slider/imgs.length}%)`}}>
-                {imgs.map(src => {
-                    return <img style={{
-                        width: `${100/imgs.length}%`
-                    }} key={src} alt="" src={src} />;
-                })}
+            <div className="scroller">
+                <div className="inner" style={{width:`${imgs.length * 100}%`,transform:`translateX(-${100*slider/imgs.length}%)`}}>
+                    {imgs.map(src => {
+                        return <img style={{
+                            width: `${100/imgs.length}%`
+                        }} key={src} alt="" src={src} />;
+                    })}
+                </div>
             </div>
-        </div>
-    );
+        );
 }
 
 // export default RollPic;
