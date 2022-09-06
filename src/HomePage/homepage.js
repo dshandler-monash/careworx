@@ -15,22 +15,30 @@ const Homepage = () =>{
                 <p class="w3-justify">virtual companion.Immerse yourself into the CareWorx experience!</p>
             </div>
             <div class="w3-row w3-padding-32" id="imgbox">
-                <div class="w3-quarter" >
-                    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fss2.meipian.me%2Fusers%2F41836844%2F4193f5d9a7af43d6af3bfa62c7a5ead9.jpg%3Fmeipian-raw%2Fbucket%2Fivwen%2Fkey%2FdXNlcnMvNDE4MzY4NDQvNDE5M2Y1ZDlhN2FmNDNkNmFmM2JmYTYyYzdhNWVhZDkuanBn%2Fsign%2F5aa3dc61bbfb6d726ef59d34d85a68a3.jpg&refer=http%3A%2F%2Fss2.meipian.me&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1664764706&t=bf2b2f9267d2189546c6bd1808b78b18" class="w3-round w3-margin-bottom" alt="Random Name"></img>
-                    <p>Explore social activities happening near you and grab the opportunity to make new friends</p>
-                </div>
-                <div class="w3-quarter">
-                    <img src="https://media.istockphoto.com/vectors/print-vector-id1042311206?s=170667a" class="w3-round w3-margin-bottom" alt="Random Name"></img>
-                    <p>Find your ideal aged care home that fullfills your needs.</p>
-                </div>
-                <div class="w3-quarter">
-                    <img src="https://www.mercurynews.com/wp-content/uploads/2016/08/20120612_014537_ecct0613salary_money_databa.jpg?w=482" class="w3-round" alt="Random Name"></img>
-                    <p>Learn about your entitled government benefits.</p>
-                </div>
-                <div class="w3-quarter">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRixrTXxgSiOo37c43NsA3E8TdMR8kNrdME9A&usqp=CAU" class="w3-round" alt="Random Name"></img>
-                    <p>Interact with your Artifitial Intelligence enabled Virtual Companion.</p>
-                </div>
+                <a href="/searchactivity">
+                    <div class="w3-quarter" >
+                        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fss2.meipian.me%2Fusers%2F41836844%2F4193f5d9a7af43d6af3bfa62c7a5ead9.jpg%3Fmeipian-raw%2Fbucket%2Fivwen%2Fkey%2FdXNlcnMvNDE4MzY4NDQvNDE5M2Y1ZDlhN2FmNDNkNmFmM2JmYTYyYzdhNWVhZDkuanBn%2Fsign%2F5aa3dc61bbfb6d726ef59d34d85a68a3.jpg&refer=http%3A%2F%2Fss2.meipian.me&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1664764706&t=bf2b2f9267d2189546c6bd1808b78b18" class="w3-round w3-margin-bottom" alt="Random Name"></img>
+                        <p>Explore social activities happening near you and grab the opportunity to make new friends</p>
+                    </div>
+                </a>
+                <a href="/findhome">
+                    <div class="w3-quarter">
+                        <img src="https://media.istockphoto.com/vectors/print-vector-id1042311206?s=170667a" class="w3-round w3-margin-bottom" alt="Random Name"></img>
+                        <p>Find your ideal aged care home that fullfills your needs.</p>
+                    </div>
+                </a>
+                <a href="/benefits">
+                    <div class="w3-quarter">
+                        <img src="https://www.mercurynews.com/wp-content/uploads/2016/08/20120612_014537_ecct0613salary_money_databa.jpg?w=482" class="w3-round" alt="Random Name"></img>
+                        <p>Learn about your entitled government benefits.</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="w3-quarter">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRixrTXxgSiOo37c43NsA3E8TdMR8kNrdME9A&usqp=CAU" class="w3-round" alt="Random Name"></img>
+                        <p>Interact with your Artifitial Intelligence enabled Virtual Companion.</p>
+                    </div>
+                </a>
             </div>
             {/* <a href="/searchactivity">
                 <div class="ibox">
