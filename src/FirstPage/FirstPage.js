@@ -11,8 +11,8 @@ const First = () =>{
     return (
         <div>
             <ResNav></ResNav>
-            <RollPic></RollPic>
-            {/* <ResRoll></ResRoll> */}
+            {/* <RollPic></RollPic> */}
+            <ResRoll></ResRoll>
             <Homepage></Homepage>
         </div>
     )

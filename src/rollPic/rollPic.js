@@ -55,7 +55,7 @@ export default () => {
                     })}
                 </div>
             </div>
-        );
+            );
 }
 
 // export default RollPic;
