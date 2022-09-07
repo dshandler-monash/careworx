@@ -4,8 +4,8 @@ import './NavigationBar.css';
 const NavigationBar = () =>{
 
     return (
-            <div class='bgi'>
-                <div class='fixed'>
+            <div className='bgi'>
+                <div className='fixed'>
                     <ul>
                         <li><a href="/">Home</a></li>
                         {/* <li class="dropdown">

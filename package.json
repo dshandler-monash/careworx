@@ -13,6 +13,7 @@
     "antd": "^4.22.8",
     "google-map-react": "^2.2.0",
     "react": "^18.2.0",
+    "react-amap": "^1.2.8",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.1.0",

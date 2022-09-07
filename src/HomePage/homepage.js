@@ -28,7 +28,7 @@ const Homepage = () =>{
                     </div>
                 </a>
                 <a href="/benefits">
-                    <div class="w3-quarter">
+                    <div class="w3-quarter">    
                         <img src="https://www.mercurynews.com/wp-content/uploads/2016/08/20120612_014537_ecct0613salary_money_databa.jpg?w=482" class="w3-round" alt="Random Name"></img>
                         <p>Learn about your entitled government benefits.</p>
                     </div>

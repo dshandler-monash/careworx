@@ -5,12 +5,9 @@ import TopAnchor from './topAnchor/TopAnchor';
 import RollPic from './rollPic/rollPic'
 import First from './FirstPage/FirstPage'
 import Second from './FirstPage/SecondPage';
-// import Third from './FirstPage/ThirdPage'
-// import Fourth from './FirstPage/FourthPage'
-// import Fifth from './FirstPage/FifthPage'
-// import Sixth from './FirstPage/SixthPage'
-// import Seventh from './FirstPage/SeventhPage'
-// import Eighth from './FirstPage/EighthPage'
+import Third from './FirstPage/ThirdPage'
+import Sixth from './FirstPage/SixthPage'
+import Seventh from './FirstPage/SeventhPage'
 import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 
 function App() {
@@ -36,10 +33,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<First/>}/>
-        {/* <Route path="/searchactivity" element={<Third/>} />
+        <Route path="/searchactivity" element={<Third/>} />
         <Route path="/findhome" element={<Sixth/>} />
-        <Route path="/benefits" element={<Seventh/>} /> */}
-        {/* <Route path="/contact" element={<Eighth/>} /> */}
+        <Route path="/benefits" element={<Seventh/>} />
       </Routes>
     </Router>
     

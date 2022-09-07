@@ -8,9 +8,7 @@ import ResNav from "../ResNav/resNav";
 
 const Seventh = () =>{
 
-    // const initMap = () => {
-    //     map
-    // }
+
     return (
         <div>
             <ResNav></ResNav>
