@@ -8,7 +8,7 @@ const First = () =>{
     return (
         <div>
             <ResNav></ResNav>
-            <ResRoll></ResRoll>
+            <ResRoll />            
             <Homepage></Homepage>
         </div>
     )

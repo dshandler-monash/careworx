@@ -2,9 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NavigationBar from './navigationBar/NavigationBar';
 import TopAnchor from './topAnchor/TopAnchor';
-import RollPic from './rollPic/rollPic'
 import First from './FirstPage/FirstPage'
-import Second from './FirstPage/SecondPage';
 import Third from './FirstPage/ThirdPage'
 import Sixth from './FirstPage/SixthPage'
 import Seventh from './FirstPage/SeventhPage'
@@ -31,12 +29,12 @@ function App() {
 
     //Route for the different websites.
     <Router>
-      <Routes>
-        <Route path="/" element={<First/>}/>
-        <Route path="/searchactivity" element={<Third/>} />
-        <Route path="/findhome" element={<Sixth/>} />
-        <Route path="/benefits" element={<Seventh/>} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<First/>}/>
+          <Route path="/searchactivity" element={<Third/>} />
+          <Route path="/findhome" element={<Sixth/>} />
+          <Route path="/benefits" element={<Seventh/>}/>
+        </Routes>
     </Router>
     
   );

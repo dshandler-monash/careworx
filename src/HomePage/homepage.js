@@ -7,13 +7,14 @@ const Homepage = () =>{
 
     return (
         <div class="whole">
-
+            <hr color="blue" className="hrw"></hr>
             <div class="w3-container w3-content w3-center w3-padding-64" id="band">
                 <h2 class="w3-wide" >Welcome to CareWorx!</h2>
                 <p class="w3-justify">CAREWORX is an initiative that helps reconnect our elderly people with the community.</p>
-                <p class="w3-justify">Dive into our wide array of unique services which could help you participate in social activities,find your ideal aged-care home or interact with our</p>
-                <p class="w3-justify">virtual companion.Immerse yourself into the CareWorx experience!</p>
+                <p class="w3-justify">Dive into our wide array of unique services which could help you participate in social activities,find your ideal aged-care home or interact with our virtual companion.Immerse yourself into the CareWorx experience!</p>
+                <p class="w3-justify"></p>
             </div>
+            <hr color="blue" className="hrw"></hr>
             <div class="w3-row w3-padding-32" id="imgbox">
                 <a href="/searchactivity">
                     <div class="w3-quarter" >
