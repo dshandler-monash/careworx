@@ -7,16 +7,19 @@ const Seventh = () => {
     // function search() {
     //     alert('Wrong suburb ')
     // }
+
+
     return (
         <div>
-            <input type="button" onClick={getList()} value="Search" />
+            <input type="button" onClick={getList()} value="Search" ></input>
             <div id="content"> </div>
-            {/* <button onClick={() => search()}>搜索</button> */}
         </div>
         // <ResNav></ResNav>
-
+        // onClick={handleClick()}
     )
+    
 
+    
     function getList() {
 
 
@@ -31,7 +34,7 @@ const Seventh = () => {
 
         axios.request({
             method: 'get',
-            baseURL: 'http://54.252.238.6:8000/api/services/?format=json&q=clayton',            
+            baseURL: 'http://54.252.238.6:8000/api/services/?format=json&q=',            
 
         }).then(
             res => {

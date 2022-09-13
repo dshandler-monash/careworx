@@ -2,9 +2,16 @@ import "./SearchPage.css";
 import pic7 from '../images/SearchActivity.png';
 import Map from "../map/map";
 import axios from "axios";
-import { alertTitleClasses } from "@mui/material";
+import ReactDOM from 'react-dom';
+// import { alertTitleClasses } from "@mui/material";
+// import {useEffect,useState} from 'react';
 
 const SearchPage = () => {
+
+    let sendData = {
+        longitude: [],
+        latitude: []
+    }
 
     let searchResult = [];
     function getList() {
@@ -39,10 +46,55 @@ const SearchPage = () => {
                     } else {
                         searchResult = list.filter(item => careTypeArr.some(value => value === item.care_type))
                         alert(`筛选后数据还有${searchResult.length}条`)
+                        // alert(`${sName}`)
                     }
                 }
 
+                //
+                let sName = []
+                let pName = []
+                let stt = []
+                let pCode = []
+                let address = []
+                let state1 = []
+                let suburb = []
+                let caretype = []
+                let provider = []
+                let orgtype = []
+                let plregion = []
+                searchResult.forEach(item => sName.push(item.service_name))
+                searchResult.forEach(item => pName.push(item.provider_name))
+                searchResult.forEach(item => stt.push(item.state))
+                searchResult.forEach(item => pCode.push(item.post_code))
+                searchResult.forEach(item => address.push(item.address_1))
+                searchResult.forEach(item => state1.push(item.state))
+                searchResult.forEach(item => suburb.push(item.suburb))
+                searchResult.forEach(item => caretype.push(item.care_type))
+                searchResult.forEach(item => provider.push(item.provider_name))
+                searchResult.forEach(item => orgtype.push(item.org_type))
+                searchResult.forEach(item => plregion.push(item.planning_region_2019))
+                searchResult.forEach(item => this.sendData.latitude.push(item.lat))
+                searchResult.forEach(item => this.sendData.longitude.push(item.lon))
 
+
+
+                let fLine = []
+                for (let i = 0; i < searchResult.length; i++) {
+                    fLine.push(sName[i] + "\n" + address[i] + ',' + suburb[i] + ',' + state1[i] + ' ' + pCode[i] + "\n"
+                        + "Care_Type: " + caretype[i] + '\n'
+                        + "Provider: " + provider[i] + "\n"
+                        + "Organization Type: " + orgtype[i] + '\n'
+                        + "2019 Planning Region: " + plregion[i] + '\n' + '\n' + '\n' + '\n')
+                }
+
+
+
+                const serName = [fLine]
+                const firstLine = (
+                    serName.map((name, value) => <p className="overformat" key={value}>{name}</p>)
+                )
+
+                ReactDOM.render(firstLine, document.getElementById('fline'))
                 // document.getElementById("content").innerHTML = str;
 
             }, error => {
@@ -89,10 +141,12 @@ const SearchPage = () => {
                             <input type="text" className="textnone w3-margin-right"></input>
                             <button class="w3-button w3-round w3-black w3-tiny w3-right" onClick={() => getList()}>Search</button>
                         </div>
-                        <Map markerList={searchResult}></Map>
+                        <Map sendData={sendData}></Map>
                     </div>
                     <div class="w3-col l6 m6">
-                        <p>a</p>
+                        <div className="scrollchoose">
+                            <div id="fline"></div>
+                        </div>
                     </div>
                 </div>
             </div>

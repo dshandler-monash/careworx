@@ -1,21 +1,26 @@
 import React from 'react'
 import './map.css'
-import axios from "axios";
+// import axios from "axios";
+
 
 
 export default class Map extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            markerList: []
-        }
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         markerList: [longitude]
+    //     }
+    // }
 
     componentDidMount() {
+        let{longitude,latitude} = this.props.sendData
         const map = new window.BMapGL.Map('container');
 
-        var point = new window.BMapGL.Point(144.96328, -37.814107);
+        for(let i = 0;i < longitude.length;i++){
+            var point = new window.BMapGL.Point(longitude[i], latitude[i]);
+        }
+        
 
         map.centerAndZoom(point, 15)
 
