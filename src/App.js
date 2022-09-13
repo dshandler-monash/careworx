@@ -6,6 +6,7 @@ import First from './FirstPage/FirstPage'
 import Third from './FirstPage/ThirdPage'
 import Sixth from './FirstPage/SixthPage'
 import Seventh from './FirstPage/SeventhPage'
+import Eighth from './FirstPage/EighthPage'
 import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/searchactivity" element={<Third/>} />
           <Route path="/findhome" element={<Sixth/>} />
           <Route path="/benefits" element={<Seventh/>}/>
+          <Route path="/aichat" element={<Eighth/>}/>
         </Routes>
     </Router>
     

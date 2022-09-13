@@ -30,13 +30,13 @@ const Homepage = () =>{
                 </a>
                 <a href="/benefits">
                     <div class="w3-quarter">    
-                        <img src="https://www.mercurynews.com/wp-content/uploads/2016/08/20120612_014537_ecct0613salary_money_databa.jpg?w=482" class="w3-round" alt="Random Name"></img>
+                        <img src="https://www.moneyunder30.com/wp-content/uploads/2018/06/Cash-Vs.-Credit-Vs.-Debit-648x364-c-default.jpg" class="w3-round" alt="Random Name"></img>
                         <p>Learn about your entitled government benefits.</p>
                     </div>
                 </a>
-                <a href="#">
+                <a href="/aichat">
                     <div class="w3-quarter">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRixrTXxgSiOo37c43NsA3E8TdMR8kNrdME9A&usqp=CAU" class="w3-round" alt="Random Name"></img>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRixrTXxgSiOo37c43NsA3E8TdMR8kNrdME9A&usqp=CAU" class="w3-round w3-margin-bottom" alt="Random Name"></img>
                         <p>Interact with your Artifitial Intelligence enabled Virtual Companion.</p>
                     </div>
                 </a>
@@ -85,6 +85,7 @@ const Homepage = () =>{
                     <a href="#">Terms of Service</a>
                     <a href="#">Legal</a>
                 </div> */}
+            <footer class="w3-container w3-padding-64 w3-center w3-blue"></footer>
         </div>
     )
 

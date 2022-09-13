@@ -16,6 +16,7 @@ export default class Map extends React.Component {
     componentDidMount() {
         let{latitude,longitude,addressNew,serviceName} = this.props.sendData
         const map = new window.BMapGL.Map('container');
+        console.log(this.props.sendData)
 
         for(let i = 0;i < latitude.length;i++){
             var point = new window.BMapGL.Point(longitude[i],latitude[i]);

@@ -19,6 +19,10 @@ const ResNav = () =>{
           {
             text: 'Entitled Government Benefits',
             link: '/benefits'
+          },
+          {
+            text: 'AI Chat',
+            link: '/aichat'
           }
         ],
         logo: {

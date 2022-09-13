@@ -1,13 +1,10 @@
-import NavigationBar from "../navigationBar/NavigationBar";
-import TopAnchor from "../topAnchor/TopAnchor";
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import ResNav from "../ResNav/resNav";
 
 
 const Eighth = () =>{
     return (
         <div>
-            <TopAnchor></TopAnchor>
-            <NavigationBar></NavigationBar>
+            <ResNav></ResNav>
         </div>
     )
 };

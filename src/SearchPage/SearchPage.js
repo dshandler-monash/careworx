@@ -75,10 +75,22 @@ const SearchPage = () => {
                 searchResult.forEach(item => provider.push(item.provider_name))
                 searchResult.forEach(item => orgtype.push(item.org_type))
                 searchResult.forEach(item => plregion.push(item.planning_region_2019))
-                searchResult.forEach(item => sendData.latitude.push(item.lat))
-                searchResult.forEach(item => sendData.longitude.push(item.lon))
-                searchResult.forEach(item => sendData.serviceName.push(item.service_name))
-                searchResult.forEach(item => sendData.addressNew.push(item.address_1))
+                if(sendData.latitude.length === 0){
+                    searchResult.forEach(item => sendData.latitude.push(item.lat))
+                    searchResult.forEach(item => sendData.longitude.push(item.lon))
+                    searchResult.forEach(item => sendData.serviceName.push(item.service_name))
+                    searchResult.forEach(item => sendData.addressNew.push(item.address_1))
+                }else{
+                    sendData.latitude = []
+                    sendData.longitude = []
+                    sendData.serviceName = []
+                    sendData.addressNew = []
+                    searchResult.forEach(item => sendData.latitude.push(item.lat))
+                    searchResult.forEach(item => sendData.longitude.push(item.lon))
+                    searchResult.forEach(item => sendData.serviceName.push(item.service_name))
+                    searchResult.forEach(item => sendData.addressNew.push(item.address_1))
+                }
+                
                 
 
 
