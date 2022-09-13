@@ -9,8 +9,10 @@ import ReactDOM from 'react-dom';
 const SearchPage = () => {
 
     let sendData = {
+        latitude: [],
         longitude: [],
-        latitude: []
+        addressNew: [],
+        serviceName: []
     }
 
     let searchResult = [];
@@ -45,7 +47,7 @@ const SearchPage = () => {
                         alert('CareType选择数据为空')
                     } else {
                         searchResult = list.filter(item => careTypeArr.some(value => value === item.care_type))
-                        alert(`筛选后数据还有${searchResult.length}条`)
+                        // alert(`筛选后数据还有${searchResult.length}条`)
                         // alert(`${sName}`)
                     }
                 }
@@ -73,9 +75,11 @@ const SearchPage = () => {
                 searchResult.forEach(item => provider.push(item.provider_name))
                 searchResult.forEach(item => orgtype.push(item.org_type))
                 searchResult.forEach(item => plregion.push(item.planning_region_2019))
-                searchResult.forEach(item => this.sendData.latitude.push(item.lat))
-                searchResult.forEach(item => this.sendData.longitude.push(item.lon))
-
+                searchResult.forEach(item => sendData.latitude.push(item.lat))
+                searchResult.forEach(item => sendData.longitude.push(item.lon))
+                searchResult.forEach(item => sendData.serviceName.push(item.service_name))
+                searchResult.forEach(item => sendData.addressNew.push(item.address_1))
+                
 
 
                 let fLine = []
@@ -96,7 +100,6 @@ const SearchPage = () => {
 
                 ReactDOM.render(firstLine, document.getElementById('fline'))
                 // document.getElementById("content").innerHTML = str;
-
             }, error => {
                 console.log("get request failed:", error);
                 document.getElementById("content").innerHTML = error;
@@ -152,7 +155,6 @@ const SearchPage = () => {
             </div>
             <footer class="w3-container w3-padding-64 w3-center w3-blue"></footer>
         </div>
-
 
     )
 
