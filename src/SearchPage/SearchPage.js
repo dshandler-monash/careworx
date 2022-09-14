@@ -5,7 +5,7 @@ import axios from "axios";
 import * as React from 'react';
 // import ReactDOM from 'react-dom';
 // import { alertTitleClasses } from "@mui/material";
-import {useEffect,useState} from 'react';
+import { useEffect, useState } from 'react';
 
 const SearchPage = () => {
 
@@ -16,33 +16,7 @@ const SearchPage = () => {
         serviceName: []
     }
 
-    const [sName,setSName] = useState('');
-    const [pName,setPName] = useState('');
-    const [stt,setStt] = useState('');
-    const [pCode,setPCode] = useState('');
-    const [address,setAddress] = useState('');
-    const [suburb,setSuburb] = useState('');
-    const [caretype,setCaretype] = useState('');
-    const [orgtype,setOrgtype] = useState('');
-    const [plregion,setPlregion] = useState('');
-    
-    function createData(sName,pName,stt,pCode,address,suburb,caretype,orgtype,plregion){
-        return {sName,pName,stt,pCode,address,suburb,caretype,orgtype,plregion};
-    }
-    const rows = [
-        createData(
-        sName,
-        pName,
-        stt,
-        pCode,
-        address,
-        suburb,
-        caretype,
-        orgtype,
-        plregion
-    )];
-    
-    
+    const [rows, setRows] = useState([]);
 
     let searchResult = [];
     function getList() {
@@ -78,20 +52,11 @@ const SearchPage = () => {
                         searchResult = list.filter(item => careTypeArr.some(value => value === item.care_type))
                         // alert(`筛选后数据还有${searchResult.length}条`)
                         // alert(`${sName}`)
-                        
+
                     }
                 }
-                searchResult.forEach(item => setSName(item.service_name))
-                searchResult.forEach(item => setPName(item.provider_name))
-                searchResult.forEach(item => setStt(item.state))
-                searchResult.forEach(item => setPCode(item.post_code))
-                searchResult.forEach(item => setAddress(item.address_1))
-                searchResult.forEach(item => setSuburb(item.suburb))
-                searchResult.forEach(item => setCaretype(item.care_type))
-                searchResult.forEach(item => setPlregion(item.planning_region_2019))
-                searchResult.forEach(item => setOrgtype(item.org_type))
+                setRows(searchResult)
 
-                
                 //
                 // if(rows.sName === []){
                 //     searchResult.forEach(item => rows.sName.push(item.service_name))
@@ -123,12 +88,12 @@ const SearchPage = () => {
                 //     searchResult.forEach(item => rows.orgtype.push(item.org_type))
                 //     searchResult.forEach(item => rows.plregion.push(item.planning_region_2019))
                 // }
-                if(sendData.latitude.length === 0){
+                if (sendData.latitude.length === 0) {
                     searchResult.forEach(item => sendData.latitude.push(item.lat))
                     searchResult.forEach(item => sendData.longitude.push(item.lon))
                     searchResult.forEach(item => sendData.serviceName.push(item.service_name))
                     searchResult.forEach(item => sendData.addressNew.push(item.address_1))
-                }else{
+                } else {
                     sendData.latitude = []
                     sendData.longitude = []
                     sendData.serviceName = []
@@ -138,10 +103,10 @@ const SearchPage = () => {
                     searchResult.forEach(item => sendData.serviceName.push(item.service_name))
                     searchResult.forEach(item => sendData.addressNew.push(item.address_1))
                 }
-                
-                
-                
-                
+
+
+
+
                 // let fLine = []
                 // for (let i = 0; i < searchResult.length; i++) {
                 //     // document.getElementsById('fline').innerHTML = sName[i]
@@ -168,18 +133,17 @@ const SearchPage = () => {
             }
         );
     }
-    console.log(rows)
 
     return (
         <div>
             <header class="w3-display-container w3-content w3-wide" className="home">
                 <img class="w3-image" src={pic8} alt="" width="1500" height="800"></img>
             </header>
-            <h2>Find you Aged Care Home</h2>
+            <h2 className="w3-padding">Find you Aged Care Home</h2>
             <hr id="hr1" className="w3-blue"></hr>
             <div className="w3-padding-32 w3-white">
                 <div className="w3-row-padding">
-                    <div className="w3-col 16 m6">
+                    <div className="w3-col 16 m6" id="boxtop">
                         <p>Search Suburb: </p>
                         <input type="text" className="texta w3-margin-right" placeholder="Search..." name="suburb" id="suburb"></input>
                         <div className="fcbox">
@@ -211,15 +175,15 @@ const SearchPage = () => {
                         <Map sendData={sendData}></Map>
                     </div>
                     <div class="w3-col l6 m6">
-                        <div className="scrollchoose">
+                        <div id="scrollchoose">
                             {rows.map((row) => (
                                 <div id="resframe">
-                                    <h4 id="h4frame">{row.sName}</h4>
-                                    <p>{row.address},&nbsp;{row.suburb},&nbsp;{row.stt}&nbsp;{row.pCode}</p>
-                                    <p>Care&nbsp;Type:&nbsp;{row.caretype}</p>
-                                    <p>Provider:&nbsp;{row.pName}</p>
-                                    <p>Organization&nbsp;Type:&nbsp;{row.orgtype}</p>
-                                    <p>2019&nbsp;Planning&nbsp;Region:&nbsp;{row.plregion}</p>
+                                    <h4 id="h4frame">{row.service_name}</h4>
+                                    <p>{row.address_1},&nbsp;{row.suburb},&nbsp;{row.state}&nbsp;{row.post_code}</p>
+                                    <p>Care&nbsp;Type:&nbsp;{row.care_type}</p>
+                                    <p>Provider:&nbsp;{row.provider_name}</p>
+                                    <p>Organization&nbsp;Type:&nbsp;{row.org_type}</p>
+                                    <p>2019&nbsp;Planning&nbsp;Region:&nbsp;{row.planning_region_2019}</p>
                                 </div>
                             ))}
                         </div>

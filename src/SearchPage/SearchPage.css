@@ -8,21 +8,21 @@
 }
 
 #hr1{
+    border-top: 1.5px solid blue;
     width: 100%;
-}
-
-#fline{
-    padding-left: 30px;
-    height: 750px;
-    font-weight: 700;
-    overflow: auto;
-}
-
-.scrollchoose{
-    
-    white-space: pre-wrap;
+    margin: 10px 0px;
 }
 
 #h4frame{
     font-weight: 700;
+}
+
+#scrollchoose{
+    padding-top: 4px;
+    overflow: auto;
+    height: 780px;
+}
+
+#boxtop{
+    padding-top: 4px;
 }

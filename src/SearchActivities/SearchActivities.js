@@ -38,7 +38,7 @@ return (
         <header class="w3-display-container w3-content w3-wide" className="home">
             <img class="w3-image" src={pic7} alt="" width="1500" height="800"></img>
         </header>   
-        <h2>Find Activities</h2>
+        <h2 className="w3-padding">Find Activities</h2>
         <hr id="hr1" className="w3-blue"></hr>
         <div className="w3-padding-32 w3-white">
             <div className="w3-row-padding">
