@@ -31,10 +31,10 @@ const Seventh = () => {
         // }).catch(err => {
         //     debugger
         // })
-
+        let suburb = document?.getElementById('suburb')?.value;
         axios.request({
             method: 'get',
-            baseURL: 'http://54.252.238.6:8000/api/services/?format=json&q=',            
+            baseURL: `http://54.252.238.6:8000/api/search/?format=json&q=${suburb}`,            
 
         }).then(
             res => {

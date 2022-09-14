@@ -1,7 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import NavigationBar from './navigationBar/NavigationBar';
-import TopAnchor from './topAnchor/TopAnchor';
 import First from './FirstPage/FirstPage'
 import Third from './FirstPage/ThirdPage'
 import Sixth from './FirstPage/SixthPage'
@@ -32,8 +29,8 @@ function App() {
     <Router>
         <Routes>
           <Route path="/" element={<First/>}/>
-          <Route path="/searchactivity" element={<Third/>} />
-          <Route path="/findhome" element={<Sixth/>} />
+          <Route path="/searchactivity" element={<Sixth/>} />
+          <Route path="/findhome" element={<Third/>} />
           <Route path="/benefits" element={<Seventh/>}/>
           <Route path="/aichat" element={<Eighth/>}/>
         </Routes>

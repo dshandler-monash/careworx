@@ -54,7 +54,7 @@ import { useEffect } from 'react';
                 <img src={pic4} style={{ width: '100%' }} alt=""></img>
                 <div className="w3-display-bottommiddle w3-container w3-text-black w3-padding-16 w3-hide-small w3-light-blue w3-opacity-min w3-margin w3-round-xxlarge">
                     <h3><b>AI Chat</b></h3>
-                    <p><b>Are you feeling lonely? Chat with our Artifitial Intelligence enabled chatbot which can imitate human interation.</b></p>
+                    <p><b>Are you feeling lonely? Chat with our Artificial Intelligence enabled chatbot which can imitate human interation.</b></p>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 axios.defaults.timeout = 100000;
-axios.defaults.baseURL = "http://54.252.238.6:8000/api/services/?format=json&q=";
+axios.defaults.baseURL = `http://54.252.238.6:8000/api/search/?format=json&q=${suburb}`;
 
 /**
  * http request 拦截器

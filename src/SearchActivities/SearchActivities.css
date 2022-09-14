@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#hr1{
+    width: 100%;
+}
+
+
+.textnone{
+    visibility: hidden;
+}

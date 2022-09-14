@@ -1,10 +1,11 @@
 import "./SearchPage.css";
-import pic7 from '../images/SearchActivity.png';
+import pic8 from '../images/SearchAged.png';
 import Map from "../map/map";
 import axios from "axios";
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+// import ReactDOM from 'react-dom';
 // import { alertTitleClasses } from "@mui/material";
-// import {useEffect,useState} from 'react';
+import {useEffect,useState} from 'react';
 
 const SearchPage = () => {
 
@@ -14,6 +15,34 @@ const SearchPage = () => {
         addressNew: [],
         serviceName: []
     }
+
+    const [sName,setSName] = useState('');
+    const [pName,setPName] = useState('');
+    const [stt,setStt] = useState('');
+    const [pCode,setPCode] = useState('');
+    const [address,setAddress] = useState('');
+    const [suburb,setSuburb] = useState('');
+    const [caretype,setCaretype] = useState('');
+    const [orgtype,setOrgtype] = useState('');
+    const [plregion,setPlregion] = useState('');
+    
+    function createData(sName,pName,stt,pCode,address,suburb,caretype,orgtype,plregion){
+        return {sName,pName,stt,pCode,address,suburb,caretype,orgtype,plregion};
+    }
+    const rows = [
+        createData(
+        sName,
+        pName,
+        stt,
+        pCode,
+        address,
+        suburb,
+        caretype,
+        orgtype,
+        plregion
+    )];
+    
+    
 
     let searchResult = [];
     function getList() {
@@ -49,32 +78,51 @@ const SearchPage = () => {
                         searchResult = list.filter(item => careTypeArr.some(value => value === item.care_type))
                         // alert(`筛选后数据还有${searchResult.length}条`)
                         // alert(`${sName}`)
+                        
                     }
                 }
+                searchResult.forEach(item => setSName(item.service_name))
+                searchResult.forEach(item => setPName(item.provider_name))
+                searchResult.forEach(item => setStt(item.state))
+                searchResult.forEach(item => setPCode(item.post_code))
+                searchResult.forEach(item => setAddress(item.address_1))
+                searchResult.forEach(item => setSuburb(item.suburb))
+                searchResult.forEach(item => setCaretype(item.care_type))
+                searchResult.forEach(item => setPlregion(item.planning_region_2019))
+                searchResult.forEach(item => setOrgtype(item.org_type))
 
+                
                 //
-                let sName = []
-                let pName = []
-                let stt = []
-                let pCode = []
-                let address = []
-                let state1 = []
-                let suburb = []
-                let caretype = []
-                let provider = []
-                let orgtype = []
-                let plregion = []
-                searchResult.forEach(item => sName.push(item.service_name))
-                searchResult.forEach(item => pName.push(item.provider_name))
-                searchResult.forEach(item => stt.push(item.state))
-                searchResult.forEach(item => pCode.push(item.post_code))
-                searchResult.forEach(item => address.push(item.address_1))
-                searchResult.forEach(item => state1.push(item.state))
-                searchResult.forEach(item => suburb.push(item.suburb))
-                searchResult.forEach(item => caretype.push(item.care_type))
-                searchResult.forEach(item => provider.push(item.provider_name))
-                searchResult.forEach(item => orgtype.push(item.org_type))
-                searchResult.forEach(item => plregion.push(item.planning_region_2019))
+                // if(rows.sName === []){
+                //     searchResult.forEach(item => rows.sName.push(item.service_name))
+                //     searchResult.forEach(item => rows.pName.push(item.provider_name))
+                //     searchResult.forEach(item => rows.stt.push(item.state))
+                //     searchResult.forEach(item => rows.pCode.push(item.post_code))
+                //     searchResult.forEach(item => rows.address.push(item.address_1))
+                //     searchResult.forEach(item => rows.suburb.push(item.suburb))
+                //     searchResult.forEach(item => rows.caretype.push(item.care_type))
+                //     searchResult.forEach(item => rows.orgtype.push(item.org_type))
+                //     searchResult.forEach(item => rows.plregion.push(item.planning_region_2019))
+                // }else{
+                //     rows.sName = []
+                //     rows.pName = []
+                //     rows.stt = []
+                //     rows.pCode = []
+                //     rows.address = []
+                //     rows.suburb = []
+                //     rows.caretype = []
+                //     rows.orgtype = []
+                //     rows.plregion = []
+                //     searchResult.forEach(item => rows.sName.push(item.service_name))
+                //     searchResult.forEach(item => rows.pName.push(item.provider_name))
+                //     searchResult.forEach(item => rows.stt.push(item.state))
+                //     searchResult.forEach(item => rows.pCode.push(item.post_code))
+                //     searchResult.forEach(item => rows.address.push(item.address_1))
+                //     searchResult.forEach(item => rows.suburb.push(item.suburb))
+                //     searchResult.forEach(item => rows.caretype.push(item.care_type))
+                //     searchResult.forEach(item => rows.orgtype.push(item.org_type))
+                //     searchResult.forEach(item => rows.plregion.push(item.planning_region_2019))
+                // }
                 if(sendData.latitude.length === 0){
                     searchResult.forEach(item => sendData.latitude.push(item.lat))
                     searchResult.forEach(item => sendData.longitude.push(item.lon))
@@ -92,36 +140,40 @@ const SearchPage = () => {
                 }
                 
                 
+                
+                
+                // let fLine = []
+                // for (let i = 0; i < searchResult.length; i++) {
+                //     // document.getElementsById('fline').innerHTML = sName[i]
+                //     // document.getElementsById()
+                //     fLine.push(sName[i] + "\n" + address[i] + ',' + suburb[i] + ',' + state1[i] + ' ' + pCode[i] + "\n"
+                //         + "Care_Type: " + caretype[i] + '\n'
+                //         + "Provider: " + provider[i] + "\n"
+                //         + "Organization Type: " + orgtype[i] + '\n'
+                //         + "2019 Planning Region: " + plregion[i] + '\n' + '\n' + '\n' + '\n')
+                // }
 
 
-                let fLine = []
-                for (let i = 0; i < searchResult.length; i++) {
-                    fLine.push(sName[i] + "\n" + address[i] + ',' + suburb[i] + ',' + state1[i] + ' ' + pCode[i] + "\n"
-                        + "Care_Type: " + caretype[i] + '\n'
-                        + "Provider: " + provider[i] + "\n"
-                        + "Organization Type: " + orgtype[i] + '\n'
-                        + "2019 Planning Region: " + plregion[i] + '\n' + '\n' + '\n' + '\n')
-                }
 
+                // const serName = [fLine]
+                // const firstLine = (
+                //     serName.map((name, value) => <p className="overformat" key={value}>{name}</p>)
+                // )
 
-
-                const serName = [fLine]
-                const firstLine = (
-                    serName.map((name, value) => <p className="overformat" key={value}>{name}</p>)
-                )
-
-                ReactDOM.render(firstLine, document.getElementById('fline'))
-                // document.getElementById("content").innerHTML = str;
+                // ReactDOM.render(firstLine, document.getElementById('fline'))
+                // // document.getElementById("content").innerHTML = str;
             }, error => {
                 console.log("get request failed:", error);
                 document.getElementById("content").innerHTML = error;
             }
         );
     }
+    console.log(rows)
+
     return (
         <div>
             <header class="w3-display-container w3-content w3-wide" className="home">
-                <img class="w3-image" src={pic7} alt="" width="1500" height="800"></img>
+                <img class="w3-image" src={pic8} alt="" width="1500" height="800"></img>
             </header>
             <h2>Find you Aged Care Home</h2>
             <hr id="hr1" className="w3-blue"></hr>
@@ -160,7 +212,16 @@ const SearchPage = () => {
                     </div>
                     <div class="w3-col l6 m6">
                         <div className="scrollchoose">
-                            <div id="fline"></div>
+                            {rows.map((row) => (
+                                <div id="resframe">
+                                    <h4 id="h4frame">{row.sName}</h4>
+                                    <p>{row.address},&nbsp;{row.suburb},&nbsp;{row.stt}&nbsp;{row.pCode}</p>
+                                    <p>Care&nbsp;Type:&nbsp;{row.caretype}</p>
+                                    <p>Provider:&nbsp;{row.pName}</p>
+                                    <p>Organization&nbsp;Type:&nbsp;{row.orgtype}</p>
+                                    <p>2019&nbsp;Planning&nbsp;Region:&nbsp;{row.plregion}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

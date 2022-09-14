@@ -7,11 +7,6 @@
     visibility: hidden;
 }
 
-
-div #mapp {
-    height: 300px;
-}
-
 #hr1{
     width: 100%;
 }
@@ -26,4 +21,8 @@ div #mapp {
 .scrollchoose{
     
     white-space: pre-wrap;
+}
+
+#h4frame{
+    font-weight: 700;
 }

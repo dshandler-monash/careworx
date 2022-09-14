@@ -35,6 +35,7 @@ export default class Map extends React.Component {
             marker.addEventListener("click", function () {
                 map.openInfoWindow(infoWindow, point); //开启信息窗口S
             });
+            console.log(longitude[i])
         }
     }
     render() {
