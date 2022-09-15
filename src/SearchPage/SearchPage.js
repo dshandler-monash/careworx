@@ -43,11 +43,11 @@ const SearchPage = () => {
                 var list = res.data;//搜索返回数据
                 if (list.length === 0) {
                     //空数据处理方式 - alert
-                    alert('暂无数据；')
+                    alert('No this suburb data.')
                 } else {
                     if (careTypeArr.length === 0) {
                         //careType 未选择
-                        alert('CareType选择数据为空')
+                        alert('Please choose the Care Type you want.')
                     } else {
                         searchResult = list.filter(item => careTypeArr.some(value => value === item.care_type))
                         // alert(`筛选后数据还有${searchResult.length}条`)
