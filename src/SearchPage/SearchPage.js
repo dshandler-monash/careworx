@@ -1,6 +1,6 @@
 import "./SearchPage.css";
 import pic8 from '../images/SearchAged.png';
-import Map from "../map/map";
+// import Map from "../map/map";
 import axios from "axios";
 import * as React from 'react';
 // import ReactDOM from 'react-dom';
@@ -37,7 +37,7 @@ const SearchPage = () => {
         // var careTypeStr = careTypeArr.join(',')
         axios.request({
             method: 'get',
-            baseURL: `http://54.252.238.6:8000/api/search/?format=json&q=${suburb}`
+            baseURL: `http://54.252.238.6/api/search/?format=json&q=${suburb}`
         }).then(
             res => {
                 var list = res.data;//搜索返回数据
@@ -149,30 +149,30 @@ const SearchPage = () => {
                         <div className="fcbox">
                             <p>Type of Facility: </p>
                             <input type="checkbox" id="careType" name="fac1" value="Residential" class="cbox"></input>
-                            <label for="fac1">Residential</label>
+                            <label htmlFor="careType">Residential</label>
                             <br></br>
-                            <input type="checkbox" id="careType" name="fac2" value="Home Care" class="cbox"></input>
-                            <label for="fac2">Home Care</label>
+                            <input type="checkbox" id="careType1" name="fac2" value="Home Care" class="cbox"></input>
+                            <label htmlFor="careType1">Home Care</label>
                             <br></br>
-                            <input type="checkbox" id="careType" name="fac3" value="Multi-Purpose Service" class="cbox"></input>
-                            <label for="fac3">Multi-Purpose Service</label>
+                            <input type="checkbox" id="careType2" name="fac3" value="Multi-Purpose Service" class="cbox"></input>
+                            <label htmlFor="careType2">Multi-Purpose Service</label>
                             <br></br>
-                            <input type="checkbox" id="careType" name="fac4" value="Short Term Restorative Care" class="cbox"></input>
-                            <label for="fac4">Short Term Restorative Care</label>
+                            <input type="checkbox" id="careType3" name="fac4" value="Short Term Restorative Care" class="cbox"></input>
+                            <label htmlFor="careType3">Short Term Restorative Care</label>
                             <br></br>
-                            <input type="checkbox" id="careType" name="fac5" value="Transition Care" class="cbox"></input>
-                            <label for="fac5">Transition Care</label>
+                            <input type="checkbox" id="careType4" name="fac5" value="Transition Care" class="cbox"></input>
+                            <label htmlFor="careType4">Transition Care</label>
                             <br></br>
-                            <input type="checkbox" id="careType" name="fac6" value="Innovative Pool" class="cbox"></input>
-                            <label for="fac6">Innovative Pool</label>
+                            <input type="checkbox" id="careType5" name="fac6" value="Innovative Pool" class="cbox"></input>
+                            <label htmlFor="careType5">Innovative Pool</label>
                             <br></br>
-                            <input type="checkbox" id="careType" name="fac7" value="National Aboriginal and Torres Strait Islander Aged Care Program" class="cbox"></input>
-                            <label for="fac7">National Aboriginal and Torres Strait Islander Aged Care Program</label>
+                            <input type="checkbox" id="careType6" name="fac7" value="National Aboriginal and Torres Strait Islander Aged Care Program" class="cbox"></input>
+                            <label htmlFor="careType6">National Aboriginal and Torres Strait Islander Aged Care Program</label>
                             <br></br>
                             <input type="text" className="textnone w3-margin-right"></input>
                             <button class="w3-button w3-round w3-black w3-tiny w3-right" onClick={() => getList()}>Search</button>
                         </div>
-                        <Map sendData={sendData}></Map>
+                        {/* <Map sendData={sendData}></Map> */}
                     </div>
                     <div class="w3-col l6 m6">
                         <div id="scrollchoose">
