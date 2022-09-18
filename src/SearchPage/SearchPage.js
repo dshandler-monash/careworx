@@ -1,6 +1,6 @@
 import "./SearchPage.css";
 import pic8 from '../images/SearchAged.png';
-// import Map from "../map/map";
+import Map from "../map/map";
 import axios from "axios";
 import * as React from 'react';
 // import ReactDOM from 'react-dom';
@@ -36,15 +36,15 @@ const SearchPage = () => {
         //是字符串形式
         // var careTypeStr = careTypeArr.join(',')
         axios.request({
-            method: 'get',
-            baseURL: `http://54.252.238.6/api/search/?format=json&q=${suburb}`
+            method: 'get',  
+            baseURL: `https://uvprotect.me/api/search/?format=json&q=${suburb}`
         }).then(
             res => {
                 var list = res.data;//搜索返回数据
-                if (list.length === 0) {
+                if (suburb.length === 0) {
                     //空数据处理方式 - alert
-                    alert('No this suburb data.')
-                } else {
+                    alert('Please input the suburb.')
+                } else{
                     if (careTypeArr.length === 0) {
                         //careType 未选择
                         alert('Please choose the Care Type you want.')
@@ -172,7 +172,7 @@ const SearchPage = () => {
                             <input type="text" className="textnone w3-margin-right"></input>
                             <button class="w3-button w3-round w3-black w3-tiny w3-right" onClick={() => getList()}>Search</button>
                         </div>
-                        {/* <Map sendData={sendData}></Map> */}
+                        <Map sendData={sendData}></Map>
                     </div>
                     <div class="w3-col l6 m6">
                         <div id="scrollchoose">
