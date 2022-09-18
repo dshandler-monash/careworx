@@ -1,11 +1,11 @@
 import "./SearchPage.css";
 import pic8 from '../images/SearchAged.png';
-import Map from "../map/map";
+// import Map from "../map/map";
 import axios from "axios";
 import * as React from 'react';
 // import ReactDOM from 'react-dom';
 // import { alertTitleClasses } from "@mui/material";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const SearchPage = () => {
 
@@ -172,7 +172,7 @@ const SearchPage = () => {
                             <input type="text" className="textnone w3-margin-right"></input>
                             <button class="w3-button w3-round w3-black w3-tiny w3-right" onClick={() => getList()}>Search</button>
                         </div>
-                        <Map sendData={sendData}></Map>
+                        {/* <Map sendData={sendData}></Map> */}
                     </div>
                     <div class="w3-col l6 m6">
                         <div id="scrollchoose">
