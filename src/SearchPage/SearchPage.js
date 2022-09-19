@@ -39,11 +39,12 @@ const SearchPage = () => {
             }
         }
 
-        axios.get('https://uvprotect.me/api/search/?format=json&q='+`${suburb}`, {
+        axios.get('/api/search/?format=json&q='+`${suburb}`, {
             headers: {
                 "Access-Control-Allow-Origin" : "*",
                 "Content-Type": "application/json",
-            }
+            },
+            proxy: true
         }).then(
             function (res) {
                 var list = res.data;//搜索返回数据
