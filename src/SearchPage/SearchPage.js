@@ -1,6 +1,6 @@
 import "./SearchPage.css";
 import pic8 from '../images/SearchAged.png';
-// import Map from "../map/map";
+import Map from "../map/map";
 import axios from "axios";
 import * as React from 'react';
 // import ReactDOM from 'react-dom';
@@ -9,14 +9,23 @@ import { useState } from 'react';
 
 const SearchPage = () => {
 
-    let sendData = {
-        latitude: [],
-        longitude: [],
-        addressNew: [],
-        serviceName: []
-    }
+    // let sendData = {
+    //     latitude: [],
+    //     longitude: [],
+    //     addressNew: [],
+    //     serviceName: []
+    // }
 
     const [rows, setRows] = useState([]);
+    const [sendLatitude, setLatitude] = useState([]);
+    const [sendLongitude, setLongitude] = useState([]);
+    const [sendAddressNew, setLaddressNew] = useState([]);
+    const [sendServiceName, setServiceName] = useState([]);
+    const [order, setOrder] = useState('');
+    const data = {
+        sendLatitude, sendLongitude, sendAddressNew, sendServiceName, order
+    }
+
 
     let searchResult = [];
     function getList() {
@@ -31,107 +40,75 @@ const SearchPage = () => {
             }
         }
 
-        // var careTypeMap =  new Map(careTypeArr.map((o)=>[o,{careType:o}]))
-        // debugger
-        //是字符串形式
-        // var careTypeStr = careTypeArr.join(',')
         axios.request({
-            method: 'get',  
-            baseURL: `https://uvprotect.me/api/search/?format=json&q=${suburb}`
+            method: 'get',
+            baseURL: `/api/search/?format=json&q=${suburb}`
         }).then(
             res => {
                 var list = res.data;//搜索返回数据
                 if (suburb.length === 0) {
                     //空数据处理方式 - alert
                     alert('Please input the suburb.')
-                } else{
+                } else {
                     if (careTypeArr.length === 0) {
-                        //careType 未选择
                         alert('Please choose the Care Type you want.')
                     } else {
                         searchResult = list.filter(item => careTypeArr.some(value => value === item.care_type))
-                        // alert(`筛选后数据还有${searchResult.length}条`)
-                        // alert(`${sName}`)
-
                     }
                 }
+
+                let latitude = []
+                let longitude = []
+                let addressNew = []
+                let serviceName = []
+
+                searchResult.forEach(item => {
+                    latitude.push(item.lat)
+                    longitude.push(item.lon)
+                    serviceName.push(item.service_name)
+                    addressNew.push(item.address_1)
+                })
+
                 setRows(searchResult)
-
-                //
-                // if(rows.sName === []){
-                //     searchResult.forEach(item => rows.sName.push(item.service_name))
-                //     searchResult.forEach(item => rows.pName.push(item.provider_name))
-                //     searchResult.forEach(item => rows.stt.push(item.state))
-                //     searchResult.forEach(item => rows.pCode.push(item.post_code))
-                //     searchResult.forEach(item => rows.address.push(item.address_1))
-                //     searchResult.forEach(item => rows.suburb.push(item.suburb))
-                //     searchResult.forEach(item => rows.caretype.push(item.care_type))
-                //     searchResult.forEach(item => rows.orgtype.push(item.org_type))
-                //     searchResult.forEach(item => rows.plregion.push(item.planning_region_2019))
-                // }else{
-                //     rows.sName = []
-                //     rows.pName = []
-                //     rows.stt = []
-                //     rows.pCode = []
-                //     rows.address = []
-                //     rows.suburb = []
-                //     rows.caretype = []
-                //     rows.orgtype = []
-                //     rows.plregion = []
-                //     searchResult.forEach(item => rows.sName.push(item.service_name))
-                //     searchResult.forEach(item => rows.pName.push(item.provider_name))
-                //     searchResult.forEach(item => rows.stt.push(item.state))
-                //     searchResult.forEach(item => rows.pCode.push(item.post_code))
-                //     searchResult.forEach(item => rows.address.push(item.address_1))
-                //     searchResult.forEach(item => rows.suburb.push(item.suburb))
-                //     searchResult.forEach(item => rows.caretype.push(item.care_type))
-                //     searchResult.forEach(item => rows.orgtype.push(item.org_type))
-                //     searchResult.forEach(item => rows.plregion.push(item.planning_region_2019))
-                // }
-                if (sendData.latitude.length === 0) {
-                    searchResult.forEach(item => sendData.latitude.push(item.lat))
-                    searchResult.forEach(item => sendData.longitude.push(item.lon))
-                    searchResult.forEach(item => sendData.serviceName.push(item.service_name))
-                    searchResult.forEach(item => sendData.addressNew.push(item.address_1))
-                } else {
-                    sendData.latitude = []
-                    sendData.longitude = []
-                    sendData.serviceName = []
-                    sendData.addressNew = []
-                    searchResult.forEach(item => sendData.latitude.push(item.lat))
-                    searchResult.forEach(item => sendData.longitude.push(item.lon))
-                    searchResult.forEach(item => sendData.serviceName.push(item.service_name))
-                    searchResult.forEach(item => sendData.addressNew.push(item.address_1))
-                }
-
-
-
-
-                // let fLine = []
-                // for (let i = 0; i < searchResult.length; i++) {
-                //     // document.getElementsById('fline').innerHTML = sName[i]
-                //     // document.getElementsById()
-                //     fLine.push(sName[i] + "\n" + address[i] + ',' + suburb[i] + ',' + state1[i] + ' ' + pCode[i] + "\n"
-                //         + "Care_Type: " + caretype[i] + '\n'
-                //         + "Provider: " + provider[i] + "\n"
-                //         + "Organization Type: " + orgtype[i] + '\n'
-                //         + "2019 Planning Region: " + plregion[i] + '\n' + '\n' + '\n' + '\n')
-                // }
-
-
-
-                // const serName = [fLine]
-                // const firstLine = (
-                //     serName.map((name, value) => <p className="overformat" key={value}>{name}</p>)
-                // )
-
-                // ReactDOM.render(firstLine, document.getElementById('fline'))
-                // // document.getElementById("content").innerHTML = str;
+                setLatitude(latitude)
+                setLongitude(longitude)
+                setLaddressNew(serviceName)
+                setServiceName(addressNew)
+                setOrder(new Date().getTime())
+                // setMap()
             }, error => {
                 console.log("get request failed:", error);
                 document.getElementById("content").innerHTML = error;
             }
-        );
+        ).catch((error) => {
+            console.log(error)
+        });
+    }
+
+
+    function setMap() {
+        const map = new window.BMapGL.Map('container');
+        if (!!sendLatitude) {
+            for (let i = 0; i < sendLatitude.length; i++) {
+                var point = new window.BMapGL.Point(sendLongitude[i], sendLatitude[i]);
+
+                map.centerAndZoom(point, 15)
+
+                var marker = new window.BMapGL.Marker(point);  // 创建标注
+                map.addOverlay(marker);              // 将标注添加到地图中
+                var opts = {
+                    width: 200,     // 信息窗口宽度
+                    height: 100,     // 信息窗口高度
+                    title: "Information", // 信息窗口标题
+                    message: sendServiceName[i]
+                }
+                var infoWindow = new window.BMapGL.InfoWindow(sendAddressNew[i], opts);  // 创建信息窗口对象 
+                marker.addEventListener("click", function () {
+                    map.openInfoWindow(infoWindow, point); //开启信息窗口S
+                });
+            }
+
+        }
     }
 
     return (
@@ -172,12 +149,15 @@ const SearchPage = () => {
                             <input type="text" className="textnone w3-margin-right"></input>
                             <button class="w3-button w3-round w3-black w3-tiny w3-right" onClick={() => getList()}>Search</button>
                         </div>
-                        {/* <Map sendData={sendData}></Map> */}
+                        {/* <div className="map">
+                            <div id="container" />
+                        </div> */}
+                        <Map data={data}></Map>
                     </div>
                     <div class="w3-col l6 m6">
                         <div id="scrollchoose">
-                            {rows.map((row) => (
-                                <div id="resframe">
+                            {rows.map((row, index) => (
+                                <div id="resframe" key={index}>
                                     <h4 id="h4frame">{row.service_name}</h4>
                                     <p>{row.address_1},&nbsp;{row.suburb},&nbsp;{row.state}&nbsp;{row.post_code}</p>
                                     <p>Care&nbsp;Type:&nbsp;{row.care_type}</p>
