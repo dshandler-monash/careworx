@@ -14,7 +14,7 @@ const SearchPage = () => {
     //     addressNew: [],
     //     serviceName: []
     // }
-    const axios = require('axios')
+    const axios = require('axios');
     const [rows, setRows] = useState([]);
     const [sendLatitude, setLatitude] = useState([]);
     const [sendLongitude, setLongitude] = useState([]);
@@ -39,11 +39,9 @@ const SearchPage = () => {
             }
         }
 
-        axios.request({
-            method: 'get',
-            baseURL: `/api/search/?format=json&q=${suburb}`,
+        axios.get(`https://uvprotect.me/api/search/?format=json&q=${suburb}`, {
             headers: {
-                'Access-Control-Allow-Origin' : '*'
+                "Access-Control-Allow-Origin" : "*",
             }
         }).then(
             res => {
