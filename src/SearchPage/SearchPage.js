@@ -1,6 +1,5 @@
 import "./SearchPage.css";
 import pic8 from '../images/SearchAged.png';
-import Map from "../map/map";
 import axios from "axios";
 import * as React from 'react';
 // import ReactDOM from 'react-dom';
@@ -42,7 +41,7 @@ const SearchPage = () => {
 
         axios.request({
             method: 'get',
-            baseURL: `/api/search/?format=json&q=${suburb}`
+            baseURL: `https://www.uvprotect.me/api/search/?format=json&q=${suburb}`
         }).then(
             res => {
                 var list = [res.data];//搜索返回数据
