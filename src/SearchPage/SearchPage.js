@@ -42,7 +42,7 @@ const SearchPage = () => {
 
         axios.request({
             method: 'get',
-            baseURL: `https://www.uvprotect.me/api/search/?format=json&q=${suburb}`
+            baseURL: `/api/search/?format=json&q=${suburb}`
         }).then(
             res => {
                 var list = [res.data];//搜索返回数据
@@ -123,7 +123,7 @@ const SearchPage = () => {
                             <input type="text" className="textnone w3-margin-right"></input>
                             <button class="w3-button w3-round w3-black w3-tiny w3-right" onClick={() => getList()}>Search</button>
                         </div>
-                        <Map data={data}></Map>
+                        {/* <Map data={data}></Map> */}
                     </div>
                     <div class="w3-col l6 m6">
                         <div id="scrollchoose">
