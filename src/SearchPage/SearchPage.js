@@ -45,8 +45,7 @@ const SearchPage = () => {
             baseURL: `https://www.uvprotect.me/api/search/?format=json&q=${suburb}`
         }).then(
             res => {
-                var list = res.data;//搜索返回数据
-                console.log(list)
+                var list = [res.data];//搜索返回数据
                 if (suburb.length === 0) {
                     //空数据处理方式 - alert
                     alert('Please input the suburb.')
