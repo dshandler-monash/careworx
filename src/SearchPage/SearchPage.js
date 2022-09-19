@@ -43,7 +43,7 @@ const SearchPage = () => {
             method: 'get',
             baseURL: `/api/search/?format=json&q=${suburb}`,
             headers: {
-                Access-Control-Allow-Origin : '*'
+                'Access-Control-Allow-Origin' : '*'
             }
         }).then(
             res => {
