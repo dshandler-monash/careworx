@@ -42,10 +42,11 @@ const SearchPage = () => {
 
         axios.request({
             method: 'get',
-            baseURL: `/api/search/?format=json&q=${suburb}`
+            baseURL: `https://www.uvprotect.me/api/search/?format=json&q=${suburb}`
         }).then(
             res => {
                 var list = res.data;//搜索返回数据
+                console.log(list)
                 if (suburb.length === 0) {
                     //空数据处理方式 - alert
                     alert('Please input the suburb.')
@@ -83,32 +84,6 @@ const SearchPage = () => {
         ).catch((error) => {
             console.log(error)
         });
-    }
-
-
-    function setMap() {
-        const map = new window.BMapGL.Map('container');
-        if (!!sendLatitude) {
-            for (let i = 0; i < sendLatitude.length; i++) {
-                var point = new window.BMapGL.Point(sendLongitude[i], sendLatitude[i]);
-
-                map.centerAndZoom(point, 15)
-
-                var marker = new window.BMapGL.Marker(point);  // 创建标注
-                map.addOverlay(marker);              // 将标注添加到地图中
-                var opts = {
-                    width: 200,     // 信息窗口宽度
-                    height: 100,     // 信息窗口高度
-                    title: "Information", // 信息窗口标题
-                    message: sendServiceName[i]
-                }
-                var infoWindow = new window.BMapGL.InfoWindow(sendAddressNew[i], opts);  // 创建信息窗口对象 
-                marker.addEventListener("click", function () {
-                    map.openInfoWindow(infoWindow, point); //开启信息窗口S
-                });
-            }
-
-        }
     }
 
     return (
@@ -149,9 +124,6 @@ const SearchPage = () => {
                             <input type="text" className="textnone w3-margin-right"></input>
                             <button class="w3-button w3-round w3-black w3-tiny w3-right" onClick={() => getList()}>Search</button>
                         </div>
-                        {/* <div className="map">
-                            <div id="container" />
-                        </div> */}
                         <Map data={data}></Map>
                     </div>
                     <div class="w3-col l6 m6">
