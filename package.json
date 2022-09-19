@@ -13,7 +13,6 @@
     "antd": "^4.22.8",
     "google-map-react": "^2.2.0",
     "http-proxy-middleware": "^2.0.6",
-    "https-proxy-agent": "^5.0.1",
     "react": "^18.2.0",
     "react-amap": "^1.2.8",
     "react-bmapgl": "^0.2.7",
