@@ -41,13 +41,17 @@ const SearchPage = () => {
 
         axios.request({
             method: 'get',
-            baseURL: `/api/search/?format=json&q=${suburb}`
+            baseURL: `/api/search/?format=json&q=${suburb}`,
+            headers: {
+                Access-Control-Allow-Origin : '*';
         }).then(
             res => {
                 var list = [res.data];//搜索返回数据
+                console.log(list);
+                console.log(headers);
                 if (suburb.length === 0) {
                     //空数据处理方式 - alert
-                    alert('Please input the suburb.')
+                    alert('Please input the suburb or postcode.')
                 } else {
                     if (careTypeArr.length === 0) {
                         alert('Please choose the Care Type you want.')
