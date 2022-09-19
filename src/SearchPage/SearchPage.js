@@ -44,6 +44,9 @@ const SearchPage = () => {
                 "Access-Control-Allow-Origin" : "*",
                 "Content-Type": "application/json",
             },
+            proxy: {
+                host: 'http://54.252.238.6/'
+            }
         }).then(
             function (res) {
                 var list = res.data;//搜索返回数据
