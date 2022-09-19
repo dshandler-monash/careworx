@@ -14,7 +14,6 @@ const SearchPage = () => {
     //     addressNew: [],
     //     serviceName: []
     // }
-    const axios = require('axios');
     const [rows, setRows] = useState([]);
     const [sendLatitude, setLatitude] = useState([]);
     const [sendLongitude, setLongitude] = useState([]);
@@ -28,6 +27,7 @@ const SearchPage = () => {
 
     let searchResult = [];
     function getList() {
+        const axios = require('axios');
         let suburb = document?.getElementById('suburb')?.value;
 
         // 获取多选框值
@@ -39,14 +39,16 @@ const SearchPage = () => {
             }
         }
 
-        axios.get(`https://uvprotect.me/api/search/?format=json&q=${suburb}`, {
+        axios.get(`/api/search/?format=json&q=${suburb}`, {
             headers: {
                 "Access-Control-Allow-Origin" : "*",
             }
         }).then(
             res => {
                 var list = [res.data];//搜索返回数据
+                console.log('Returned Data:');
                 console.log(list);
+                console.log('headers:');
                 console.log(res.headers);
                 if (suburb.length === 0) {
                     //空数据处理方式 - alert
