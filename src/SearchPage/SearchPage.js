@@ -39,7 +39,7 @@ const SearchPage = () => {
             }
         }
 
-        axios.get(`/api/search/?format=json&q=${suburb}`, {
+        axios.get(`api/search/?format=json&q=${suburb}`, {
             headers: {
                 "Access-Control-Allow-Origin" : "*",
                 "Content-Type": "application/json",
