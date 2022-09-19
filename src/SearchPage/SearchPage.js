@@ -47,7 +47,7 @@ const SearchPage = () => {
             res => {
                 var list = [res.data];//搜索返回数据
                 console.log(list);
-                console.log(headers);
+                console.log(res.headers);
                 if (suburb.length === 0) {
                     //空数据处理方式 - alert
                     alert('Please input the suburb or postcode.')
