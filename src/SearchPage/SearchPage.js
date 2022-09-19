@@ -44,7 +44,9 @@ const SearchPage = () => {
                 "Access-Control-Allow-Origin" : "*",
                 "Content-Type": "application/json",
             },
-            proxy: true
+            proxy: {
+                host: "uvprotect.me"
+            }
         }).then(
             function (res) {
                 var list = res.data;//搜索返回数据
