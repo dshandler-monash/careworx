@@ -28,6 +28,7 @@ const SearchPage = () => {
     let searchResult = [];
     function getList() {
         const axios = require('axios');
+        var HttpsProxyAgent = require('https-proxy-agent');
         let suburb = document?.getElementById('suburb')?.value;
 
         // 获取多选框值
@@ -44,9 +45,8 @@ const SearchPage = () => {
                 "Access-Control-Allow-Origin" : "*",
                 "Content-Type": "application/json",
             },
-            proxy: {
-                host: "uvprotect.me"
-            }
+            proxy: false,
+            httpsAgent: new HttpsProxyAgent.HttpsProxyAgent(`https://uvprotect.me/api/search/?format=json&q=${suburb}`)
         }).then(
             function (res) {
                 var list = res.data;//搜索返回数据
