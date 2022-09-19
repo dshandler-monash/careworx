@@ -14,7 +14,7 @@ const SearchPage = () => {
     //     addressNew: [],
     //     serviceName: []
     // }
-
+    const axios = require('axios')
     const [rows, setRows] = useState([]);
     const [sendLatitude, setLatitude] = useState([]);
     const [sendLongitude, setLongitude] = useState([]);
