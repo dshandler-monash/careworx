@@ -41,7 +41,7 @@ const SearchPage = () => {
 
         axios.request({
             method: 'get',
-            baseURL: `https://www.uvprotect.me/api/search/?format=json&q=${suburb}`
+            baseURL: `/api/search/?format=json&q=${suburb}`
         }).then(
             res => {
                 var list = [res.data];//搜索返回数据
