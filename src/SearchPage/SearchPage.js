@@ -39,10 +39,7 @@ const SearchPage = () => {
             }
         }
 
-        axios.get('/api/search/?format=json&q='+`${suburb}`, {
-            proxy: {
-                host: "https://uvprotect.me"
-            },
+        axios.get('https://uvprotect.me/api/search/?format=json&q='+`${suburb}`, {
             headers: {
                 "Access-Control-Allow-Origin" : "*",
                 "Content-Type": "application/json",
