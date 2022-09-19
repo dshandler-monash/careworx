@@ -45,7 +45,7 @@ const SearchPage = () => {
             }
         }).then(
             res => {
-                var list = [res.data];//搜索返回数据
+                var list = res.data;//搜索返回数据
                 console.log('Returned Data:');
                 console.log(list);
                 console.log('headers:');
