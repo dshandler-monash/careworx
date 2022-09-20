@@ -32,7 +32,7 @@ function App() {
           <Route path="/searchactivity" element={<Sixth/>} />
           <Route path="/findhome" element={<Third/>} />
           <Route path="/benefits" element={<Seventh/>}/>
-          <Route path="/aichat" element={<Eighth/>}/>
+          <Route path="/virtualcompanion" element={<Eighth/>}/>
         </Routes>
     </Router>
     

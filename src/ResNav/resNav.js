@@ -21,8 +21,8 @@ const ResNav = () =>{
             link: '/benefits'
           },
           {
-            text: 'AI Chat',
-            link: '/aichat'
+            text: 'Virtual Companion',
+            link: '/virtualcompanion'
           }
         ],
         logo: {

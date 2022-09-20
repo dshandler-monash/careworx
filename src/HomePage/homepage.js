@@ -34,7 +34,7 @@ const Homepage = () =>{
                         <p>Learn about your entitled government benefits.</p>
                     </div>
                 </a>
-                <a href="/aichat">
+                <a href="/virtualcompanion">
                     <div class="w3-quarter">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRixrTXxgSiOo37c43NsA3E8TdMR8kNrdME9A&usqp=CAU" class="w3-round w3-margin-bottom" alt="Random Name"></img>
                         <p>Interact with your Artifitial Intelligence enabled Virtual Companion.</p>
